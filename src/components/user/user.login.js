@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import md5 from 'md5';
 
 export default class Login extends Component {
     state = {
@@ -19,7 +18,7 @@ export default class Login extends Component {
         e.preventDefault();
         const info = {
             email: this.state.email,
-            password: md5(this.state.password)
+            password: this.state.password
         }
         axios
             .post("http://localhost:4000/signin", info)
@@ -43,12 +42,12 @@ export default class Login extends Component {
                     <input type="password" name="password" className="form-control" placeholder="Enter password" required onChange={this.handlechange} />
                 </div>
 
-                {/* <div className="form-group">
+                <div className="form-group">
                     <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     </div>
-                </div> */}
+                </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Submit</button>
                 <p className="forgot-password text-right">

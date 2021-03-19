@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import md5 from 'md5';
 
 class SignUp extends Component {
     state = {
@@ -25,7 +24,7 @@ class SignUp extends Component {
         const info = {
             name: this.state.name,
             email: this.state.email,
-            password: md5(this.state.password)
+            password: this.state.password
         }
         axios
             .post("http://localhost:4000/signup", info)
