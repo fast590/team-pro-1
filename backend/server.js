@@ -7,8 +7,9 @@ const PORT = 4000;
 const userModel = require('./model/user');
 const {auth} = require('./middleware/auth');
 
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookiePaser());
 
 app.get('/', (req, res) => {
@@ -42,7 +43,7 @@ app.post('/api/users/signin', (req, res) => {
                 user.generateToken((err, user) =>{
                     if(err) res.status(400).send(err);
 
-                    res.cookie("x_auth", user.token)
+                    res.cookie("x_auth", user.token, { httpOnly: false, secure: false })
                     .status(200)
                     .json({success:true, userId:user._id})
                 })
