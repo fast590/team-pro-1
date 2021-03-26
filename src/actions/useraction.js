@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOGIN_USER, REGISTER_USER} from './types';
+import {LOGIN_USER, REGISTER_USER, AUTH_USER, EDIT_USER} from './types';
 
 export function loginUser(data) {
        const request =  axios
@@ -13,9 +13,6 @@ export function loginUser(data) {
 }
 
 export function registerUser(data) {
-        console.log(data.name)
-        console.log(data.email)
-        console.log(data.password)
        const request =  axios
             .post("http://localhost:4000/api/users/signup", data, {withCredentials: true, credentials: 'include'})
             .then(res => res.data)
@@ -25,4 +22,29 @@ export function registerUser(data) {
             payload:request
         }
 }
+
+export function editUser(data) {
+    const request =  axios
+         .post("http://localhost:4000/api/users/editpro", data, {withCredentials: true, credentials: 'include'})
+         .then(res => res.data)
+     
+     return {
+         type:EDIT_USER,
+         payload:request
+     }
+ }
+
+export function auth() {
+   const request =  axios
+        .get("http://localhost:4000/api/users/auth", {withCredentials: true, credentials: 'include'})
+        .then(res => res.data)
+    
+    return {
+        type:AUTH_USER,
+        payload:request
+    }
+}
+
+
+
 

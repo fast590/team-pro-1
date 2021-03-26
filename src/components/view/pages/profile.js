@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import Header from '../view/header/header';
-import {useDispatch} from 'react-redux';
-import {registerUser} from '../../actions/useraction';
+import React, { useState ,useEffect} from "react";
 import { withRouter } from "react-router";
+import HeaderLogin from '../header/headerlogin';
+import {useDispatch} from 'react-redux';
+import {editUser} from '../../../actions/useraction'
+import {useSelector} from 'react-redux'
 
+function Profile(props){
 
-function SignUp(props){
     const dispatch = useDispatch()
 
     const [Name, setName] = useState("")
@@ -15,22 +16,35 @@ function SignUp(props){
     const [Message, setMessage] = useState("")
     
     const onNameHandler = (e) => {
+        setMessage("")
         setName(e.currentTarget.value)
     }
 
     const onConfirmPasswordHandler = (e) => {
+        setMessage("")
         setconfirmPassword(e.currentTarget.value)
     }
 
    const onEmailHandler = (e) => {
+        setMessage("")
         setEmail(e.currentTarget.value)
     }
+    
     const onPasswordHandler =(e) => {
+        setMessage("")
         setPassword(e.currentTarget.value)
     }
-
+    
+    const user = useSelector((state) => state.user);
+    
+    useEffect(() => {
+        setName(user.userData.name)
+        setEmail(user.userData.email)
+    }, [])
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+      
         const nameValid = /^[a-zA-Z]+$/;
         if (!nameValid.test(Name)) return setMessage("Plase use a vaild name type");
         if (Password !== confirmPassword) return setMessage("Password didn't match");
@@ -40,22 +54,20 @@ function SignUp(props){
             email: Email,
             password: Password
         }
-        dispatch(registerUser(body))
-            .then(res =>{   
-                console.log(res)
-                if(res.payload.success) {
-                    props.history.push('/dashbord')
-                }
-            })
-        setMessage("")
+        dispatch(editUser(body))
+             .then(res =>{   
+                 props.history.push('./dashbord')
+                })
+         setMessage("")
     }
+
     return (
         <div className="App">
-            <Header />
+            <HeaderLogin />
             <div className="auth-wrapper">
                 <div className="auth-inner">
                     <form onSubmit={handleSubmit}>
-                        <h3>Sign Up</h3>
+                        <h3>Edit your Info</h3>
 
                         <div className="form-group">
                             <label>Name</label>
@@ -93,7 +105,7 @@ function SignUp(props){
                                 onChange={onPasswordHandler} />
                         </div>
                         <div className="form-group">
-                            <label>Password</label>
+                            <label>Confirm Password</label>
                             <input
                                 type="password"
                                 name="confirmpassword"
@@ -103,10 +115,7 @@ function SignUp(props){
                                 required
                                 onChange={onConfirmPasswordHandler} />
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                        <p className="forgot-password text-right">
-                            Already registered <a href="/signin">sign in?</a>
-                        </p>
+                        <button type="submit" className="btn btn-primary btn-block">Change</button>
                         <p className="warning"> {Message} </p>
                     </form>
                 </div>
@@ -114,4 +123,4 @@ function SignUp(props){
         </div>
     );
 }
-export default withRouter(SignUp)
+export default withRouter(Profile)

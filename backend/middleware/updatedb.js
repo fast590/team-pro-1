@@ -1,10 +1,11 @@
-
 const userModel = require('../model/user');
 
-let auth = (req, res, next) => {
+let dbupdate = (req, res, next) => {
     var token = req.cookies.x_auth;
-
-    userModel.findByToken(token, (err, user) => {
+    var userData  = req.body;
+    console.log(token)
+    console.log(userData)
+    userModel.findUserAndUpdate(token, userData, (err, user) => {
         if(err) throw err;
         if(!user) res.json({isAuth:false, error: true});
 
@@ -15,4 +16,4 @@ let auth = (req, res, next) => {
 
 }
 
-module.exports = auth
+module.exports = dbupdate

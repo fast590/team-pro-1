@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
-import Reducer from './reducers/index';
+import store from './reducers/index';
 
 
 
@@ -16,7 +16,7 @@ const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store = {createStoreWithMiddleware(Reducer,
+    <Provider store = {createStoreWithMiddleware(store,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )}>
       <App />

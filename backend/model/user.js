@@ -19,14 +19,14 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique:true,
-        minlength: 5
+        minlength: 2
     },
     token:{
         type:String
     },
     role: {
         type:Number,
-        default:0
+        default:1
     }
 
 }, {
@@ -81,4 +81,16 @@ userSchema.statics.findByToken = function(token, cb) {
     })
 }
 
+userSchema.statics.findUserAndUpdate = function(token, userData, cb) {
+    var user = this;
+    var name = userData.name;
+    var email = userData.email;
+    var password = userData.password;
+    jwt.verify(token,'secretToken', (err, decoded) => {
+        user.findOneAndUpdate({"_id": decoded, "token": token}, [{$set: {name: name}}, {$set: {email: email}}, {$set: {password: password}}] ,(err, user) => {
+            if(err) return cb(err)
+            cb(null, user)
+        })
+    })
+}
 module.exports = mongoose.model("userSchema", userSchema);
