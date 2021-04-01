@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from '../view/header/header';
 import {useDispatch} from 'react-redux';
 import {registerUser} from '../../actions/useraction';
 import { withRouter } from "react-router";
@@ -44,14 +43,13 @@ function SignUp(props){
             .then(res =>{   
                 console.log(res)
                 if(res.payload.success) {
-                    props.history.push('/dashbord')
+                    props.history.push('/')
                 }
             })
         setMessage("")
     }
     return (
         <div className="App">
-            <Header />
             <div className="auth-wrapper">
                 <div className="auth-inner">
                     <form onSubmit={handleSubmit}>

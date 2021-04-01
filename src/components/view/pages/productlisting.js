@@ -12,9 +12,9 @@ class ProductListing extends React.Component {
         return (
             <div className = "w-full h-full">
                 <HeaderLogin />
+                <AdminSidebar />
                 <Breadcrumbs  />
-                <div className = "w-full h-full">
-                    <AdminSidebar />
+                <div className = "w-5/6 float-right my-36 pb-36">
                     <ProductListingeArea />
                 </div>
             </div>

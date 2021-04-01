@@ -12,9 +12,9 @@ class Admin extends React.Component {
         return (
             <div className = "w-full h-full">
                 <HeaderLogin />
-                <Breadcrumbs  />
-                <div className = "w-full h-full">
-                    <AdminSidebar />
+                <AdminSidebar />
+                <Breadcrumbs />
+                <div className = "w-5/6 h-full float-right mt-36">
                     <Dashbord />
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import avata from '../../../avada.jfif';
 import { Link, withRouter } from "react-router-dom";
 
 
@@ -16,28 +17,27 @@ class HeaderLogin extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light">
-                <div className="container">
-                <Link className="navbar-brand" to={"/"}>HSJ.io</Link>
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav ml-auto">
-                    <li className="nav-item">
-                        My Account
-                    </li>
-                    <div className = "nav dropdown">
-                        <li>
-                            <Link className="nav-link" to={"/dashbord"}>Dashobord</Link>
-                        </li>
-                        <li>
-                            <Link className="nav-link" to={"/myacount/profile"}>Edit Profile</Link>
-                        </li>
-                        <li>
-                            <button className="nav-link" onClick = {this.handleClick}>Logout</button>
-                            
-                        </li> 
-                    </div>  
-                    </ul>
+            <nav className="fixed top-0 z-50 w-full inline-flex bg-white h-20">
+                <div className = "logo m-auto w-3/5">
+                    <Link to={"/"}>HSJ.io</Link>
                 </div>
+                <div className="w-1/5 text-center flex float-right" >
+                    <div className="nav-items h-auto m-auto relative">
+                       <div className = "header-account">
+                           <img src = {avata} className = "w-16 h-16"/>
+                           
+                        </div> 
+                        <div className = "nav-drowdowns absolute text-left pt-6 bg-white w-40 -left-0.5  pl-1 hidden">
+
+                            <div>
+                                <Link className="pt-3" to={"/myacount/profile"}>Edit Profile</Link>
+                            </div>
+                            <div>
+                                <button className="pt-2 pb-2" onClick = {this.handleClick}>Logout</button>
+                                
+                            </div> 
+                        </div>  
+                    </div>
                 </div>
             </nav>
         );

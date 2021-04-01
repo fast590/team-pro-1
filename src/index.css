@@ -7,7 +7,8 @@
 }
 
 body {
-    background: #1C8EF9 !important;
+    --tw-bg-opacity: 1;
+    background-color: rgba(249, 250, 251, var(--tw-bg-opacity)) !important;
     min-height: 100vh;
     display: flex;
     font-weight: 400;
@@ -104,11 +105,11 @@ h1 {
     padding-top: 1em;
 }
 
-ul.navbar-nav.ml-auto li.nav-item:hover~.nav.dropdown {
+.header-account:hover~.nav-drowdowns {
     display: block;
 }
 
-.nav.dropdown:hover {
+.nav-drowdowns:hover {
     display: block;
 }
 

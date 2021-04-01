@@ -18,10 +18,29 @@ function ProductListingeArea(params) {
 
     const product =  Product.map(product => <ProductView product = {product} />) 
     return (
-        <div className = "w-10/12 float-right h-full">
-            <h1> ProductListingeArea</h1>
-            <div>
-                {product}
+        <div className = "w-10/12 m-auto h-full">
+            <h1> Product List</h1>
+            <div className ="w-full">
+                <table className = "w-full shadow">
+                    <tr className = "bg-blue-500 h-16">
+                        <th className = "w-1/5 	text-center">
+                            Product Image
+                        </th>
+                        <th className = "w-1/5 	text-center">
+                            Name
+                        </th>
+                        <th className = "w-1/5 	text-center">
+                            Price
+                        </th>
+                        <th className = "w-1/5 	text-center">
+                            SKU
+                        </th>
+                        <th className = "w-1/5 	text-center">
+                            Edit
+                        </th>
+                    </tr>
+                    {product}
+                </table>
             </div>    
             
         </div>

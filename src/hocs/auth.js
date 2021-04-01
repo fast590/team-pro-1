@@ -14,10 +14,10 @@ export default function(SpecialComponent, option, adminRoute = null){
             dispatch(auth()).then(res => {
                 console.log(res)
                 if (!res.payload.isAuth){
-                    if(option) props.history.push('/signin')
+                    if(option) props.history.push('/signup')
                 } 
                 if (res.payload.isAuth) {
-                    if(!option) props.history.push('/dashbord')
+                    if(!option) props.history.push('/')
                 }
             })
         }, [])

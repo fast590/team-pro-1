@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import Header from '../header/header';
 
 
 class ForgetPassword extends Component {
@@ -31,7 +30,6 @@ class ForgetPassword extends Component {
     render() {
         return (
             <div className="App">
-                <Header />
                 <div className="auth-wrapper">
                     <h2 className = "text-center">  </h2>
                     <div className="auth-inner">

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux';
-import Header from '../view/header/header';
 import {loginUser} from '../../actions/useraction';
 import { withRouter } from "react-router";
 
@@ -30,7 +29,7 @@ function Login(props) {
         dispatch(loginUser(body))
             .then(res =>{
                 if(res.payload.success) {
-                    props.history.push('/dashbord')
+                    props.history.push('/')
                 }else {
                     setMessage("Wrong Pass. Forget password?")
                 }
@@ -40,7 +39,6 @@ function Login(props) {
     }
     return (
         <div className="App">
-            <Header />
             <div className="auth-wrapper">
                 <div className="auth-inner">
                     <form onSubmit={handleSubmit}>
