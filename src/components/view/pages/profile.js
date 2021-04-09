@@ -40,7 +40,7 @@ function Profile(props){
     useEffect(() => {
         setName(user.userData.name)
         setEmail(user.userData.email)
-    }, [])
+    }, [user.userData.name, user.userData.email])
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -66,7 +66,7 @@ function Profile(props){
             <HeaderLogin />
             <div className="auth-wrapper">
                 <div className="auth-inner">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} >
                         <h3>Edit your Info</h3>
 
                         <div className="form-group">
@@ -78,6 +78,7 @@ function Profile(props){
                                 name="name"
                                 value={Name}
                                 required
+                                autoComplete = "off"
                                 onChange={onNameHandler} />
                         </div>
 
@@ -90,6 +91,7 @@ function Profile(props){
                                 placeholder="Enter email"
                                 value={Email}
                                 required
+                                autoComplete = "off"
                                 onChange={onEmailHandler} />
                         </div>
 
@@ -102,6 +104,7 @@ function Profile(props){
                                 placeholder="Enter password"
                                 value={Password}
                                 required
+                                autoComplete = "off"
                                 onChange={onPasswordHandler} />
                         </div>
                         <div className="form-group">
@@ -112,6 +115,7 @@ function Profile(props){
                                 className="form-control"
                                 placeholder="Confirm password"
                                 value={confirmPassword}
+                                autoComplete = "off"
                                 required
                                 onChange={onConfirmPasswordHandler} />
                         </div>

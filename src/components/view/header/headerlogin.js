@@ -24,7 +24,7 @@ class HeaderLogin extends React.Component {
                 <div className="w-1/5 text-center flex float-right" >
                     <div className="nav-items h-auto m-auto relative">
                        <div className = "header-account">
-                           <img src = {avata} className = "w-16 h-16"/>
+                           <img src = {avata} className = "w-16 h-16" alt="Header Avada" />
                            
                         </div> 
                         <div className = "nav-drowdowns absolute text-left pt-6 bg-white w-40 -left-0.5  pl-1 hidden">

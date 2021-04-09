@@ -11,18 +11,18 @@ function AdminSidebar(props) {
                 </Link>
             </div>
             <div className = "w-full  ">
-                <Link to = {'/account-settings'} className = "text-current">  <h6 className ="justify-center leading-10 mb-0  pl-6 cursor-pointer"> Account settings </h6></Link>
-                <ul className = "mb-0">
+                <Link to = {'/account'} className = "text-current">  <h6 className ="justify-center leading-10 mb-0  pl-6 cursor-pointer"> Account settings </h6></Link>
+                {/* <ul className = "mb-0">
                     <li className = "leading-8 	text-white pl-8 cursor-pointer	">
-                        <Link to = {'/account-settings/listing-page'} className = "text-current"> Listing page </Link>
+                        <Link to = {'/account/listing-page'} className = "text-current"> Listing page </Link>
                     </li>
                     <li className = "leading-8 	text-white pl-8 cursor-pointer	">
-                        <Link to = {'/account-settings/detail-page'} className = "text-current">Detail page </Link>
+                        <Link to = {'/account/detail-page'} className = "text-current">Detail page </Link>
                     </li>
                     <li className = "leading-8 	text-white pl-8 cursor-pointer	">
-                        <Link to = {'/account-settings/add-page'} className = "text-current"> Add new page </Link>
+                        <Link to = {'/account/add-page'} className = "text-current"> Add new page </Link>
                     </li>
-                </ul>
+                </ul> */}
             </div>
             <div className = "w-full ">
                 <Link to = {'/rep-manage'} className = "text-current"> <h6 className ="justify-center leading-10 mb-0  pl-6 cursor-pointer"> Rep Management </h6></Link>
@@ -43,7 +43,7 @@ function AdminSidebar(props) {
             </div>
             <div className = "w-full ">
                 <Link to = {'/customers'} className = "text-current"> <h6 className ="justify-center leading-10 mb-0  pl-6 cursor-pointer"> Customers </h6></Link>
-                <ul className = "mb-0">
+                {/* <ul className = "mb-0">
                     <li className = "leading-8 	text-white pl-8 cursor-pointer	">
                         <Link to = {'/customers/listing-page'} className = "text-current">     Listing page </Link>
                     </li>
@@ -53,7 +53,7 @@ function AdminSidebar(props) {
                     <li className = "leading-8 	text-white pl-8 cursor-pointer	">
                         <Link to = {'/customers/add-page'} className = "text-current">     Add new page</Link>
                     </li>
-                </ul>
+                </ul> */}
             </div>
             <div className = "w-full ">
                 <Link to = {'/analytics'} className = "text-current"><h6 className ="justify-center leading-10 mb-0  pl-6 cursor-pointer"> Analytics </h6></Link>

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { auth } from "../actions/useraction";
 
 
-export default function(SpecialComponent, option, adminRoute = null){
+function Auth(SpecialComponent, option, adminRoute = null){
 
     function AuthenticationCheck(props) {
         
@@ -12,7 +12,6 @@ export default function(SpecialComponent, option, adminRoute = null){
         useEffect(() => {
 
             dispatch(auth()).then(res => {
-                console.log(res)
                 if (!res.payload.isAuth){
                     if(option) props.history.push('/signup')
                 } 
@@ -20,7 +19,7 @@ export default function(SpecialComponent, option, adminRoute = null){
                     if(!option) props.history.push('/')
                 }
             })
-        }, [])
+        })
 
         return (
             <SpecialComponent />
@@ -28,3 +27,4 @@ export default function(SpecialComponent, option, adminRoute = null){
     }
     return AuthenticationCheck
 }
+export default Auth

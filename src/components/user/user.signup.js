@@ -30,7 +30,7 @@ function SignUp(props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const nameValid = /^[a-zA-Z]+$/;
+        const nameValid = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
         if (!nameValid.test(Name)) return setMessage("Plase use a vaild name type");
         if (Password !== confirmPassword) return setMessage("Password didn't match");
 
@@ -43,7 +43,7 @@ function SignUp(props){
             .then(res =>{   
                 console.log(res)
                 if(res.payload.success) {
-                    props.history.push('/')
+                    props.history.push('/signin')
                 }
             })
         setMessage("")

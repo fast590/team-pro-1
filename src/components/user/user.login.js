@@ -28,14 +28,14 @@ function Login(props) {
         }
         dispatch(loginUser(body))
             .then(res =>{
+                console.log(res)
                 if(res.payload.success) {
+                    
                     props.history.push('/')
                 }else {
                     setMessage("Wrong Pass. Forget password?")
                 }
-                
             })
-
     }
     return (
         <div className="App">
@@ -66,6 +66,7 @@ function Login(props) {
                             Forgot <a href="/forget-password">password?</a>
                         </p>
                         <p className="warning"> {Message} </p>
+                        Don't have an account yet, <a href="/signup">sign in?</a>
                     </form>
                 </div>
             </div>
