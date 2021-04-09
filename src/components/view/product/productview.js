@@ -18,8 +18,9 @@ class ProductView extends Component{
     }
 
     render(){
-            const {product} = this.props;
-            const divid = `productdivid-${this.props.product.id}`;
+        const {product} = this.props;
+        const divid = `productdivid-${this.props.product.id}`;
+        
         return(
             <tr className = "border-t border-gray-300" id = {divid}>
                 <td className = "h-40">
@@ -53,6 +54,7 @@ class ProductView extends Component{
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
                             </Link>
+
                         </div>
                         <div className = "w-6 h-6 text-red-700 relative">
                             {/* <Link to = {{

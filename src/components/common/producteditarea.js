@@ -28,9 +28,9 @@ function ProductDetailArea(props) {
         
         if(t === 'Edit') {
             e.target.innerHTML = "Update";
+            document.getElementById('cancel_btn').innerHTML = "Cancel";
             seteditSate(false)
         }else {
-            e.target.innerHTML = "Edit";
             seteditSate(true)
             
             const data = {
@@ -49,8 +49,13 @@ function ProductDetailArea(props) {
     }
     
     const editCancel = (e) => {
-        document.getElementById('edit_btn').innerHTML = "Edit";
-        seteditSate(true)
+        if(document.getElementById('edit_btn').textContent ==="Update") {
+            document.getElementById('edit_btn').innerHTML = "Edit";
+            seteditSate(true)
+            e.target.innerHTML = "Go Back";
+        } else if(document.getElementById('edit_btn').textContent ==="Edit") {
+            props.history.push('/product')
+        }
     }
 
     return (
@@ -96,8 +101,8 @@ function ProductDetailArea(props) {
                     </div>
                 </div>
                 <div className = "my-10 text-center">
-                    <button className = "bg-blue-400 py-2 px-10 mx-1 rounded shadow-md text-white" id = "edit_btn" onClick = {editProduct}>Edit</button>
-                    <button className = "bg-blue-400 py-2 px-10 mx-1 rounded shadow-md text-white" onClick = {editCancel}>Cancel</button>
+                    <button className = "bg-blue-400 py-2 px-6 mx-1 rounded shadow-md text-white" id = "edit_btn" onClick = {editProduct}>Edit</button>
+                    <button className = "bg-blue-400 py-2 px-6 mx-1 rounded shadow-md text-white" id = "cancel_btn"  onClick = {editCancel}>Go Back</button>
                 </div>
             </div>
         </div>
